@@ -35,7 +35,6 @@ body {
     background-color: #3d3b3b;
     margin-top: 20px;
     border-radius: 13px;
-    overflow: auto;
 }
 .lancamento {
     text-align: center;
@@ -336,24 +335,7 @@ a {
     border-radius: 15px;
     margin-left: 3%;
 }
-.imgLanc{
 
-    width: 1050px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.imgLanc img {
-    width: 210px; 
-    height: 300px;
-}
-.imgLanc h2 {
-    color: white;
-    width: 210px;
-    text-align: center;
-}
 .carregaLancamento{
     width: 203px;
     height: 35px;
@@ -361,16 +343,36 @@ a {
     margin-right: 5%;
     margin-bottom: 1%;
 }
-.btnLancamento {
+#btnLancamento {
     background-color: darkred;
     border: none;
     color: white;
-    border-radius: 10px;
     height: 35px;
-    
+    border-radius: 15px;   
 }
-.btnLancamento:hover {
+
+.botaoLancamento {
+    width: 150px;
+    margin: 0 auto;;
+}
+#btnLancamento:hover {
     background-color: black;
+}
+.imgLanc img {
+    width: 210px;
+}
+.imgLanc {
+    display: flex;
+    padding-left: 3.2%;
+    padding-bottom: 2%;
+    color: white;
+    text-align: center;
+}
+.imgLanc h2 {
+    max-width: 210px;
+    padding-top: 2% ;
+    margin: 0 auto;
+    font-size: 110%;
 }
 
 
