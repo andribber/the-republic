@@ -42,13 +42,13 @@ function carregaDestaques(genero=''){
 
                 if (parouEm==0){
                     addPoster.innerHTML = `
-                    <div class="col-sm-12 col-md-6 col-lg-3 ${mobile}">
-                        <div codigo="${id}"><img src="https://image.tmdb.org/t/p/w300/${foto}" alt=""><h6>${title}</h6></div>
+                    <div class="col-sm-12 col-md-6 col-lg-3 ${mobile} img-responsive imgLanc">
+                        <div codigo="${id}"><img src="https://image.tmdb.org/t/p/w300/${foto}"" alt=""><h6>${title}</h6></div>
                     </div>`;
                 }
                 else{
                     addPoster.innerHTML += `
-                    <div class="col-sm-12 col-md-6 col-lg-3 ${mobile}">
+                    <div class="col-sm-12 col-md-6 col-lg-3 ${mobile} img-responsive imgLanc">
                         <div codigo="${id}"><img src="https://image.tmdb.org/t/p/w300/${foto}" alt=""><h6>${title}</h6></div>
                     </div>`;
                 }
@@ -85,8 +85,8 @@ function carregaMaisDestaque(){
 
         let addPoster = document.getElementById("addPoster");
         addPoster.innerHTML += `
-        <div class="col-sm-12 col-md-6 col-lg-3 ${mobile}">
-            <div codigo="${id}"><img src="https://image.tmdb.org/t/p/w300/${foto}" alt=""><h6>${title}</h6></div>
+        <div class="col-sm-12 col-md-6 col-lg-3 ${mobile} img-responsive imgLanc">
+            <div codigo="${id}"><img src="https://image.tmdb.org/t/p/w300/${foto}"  alt=""><h6>${title}</h6></div>
         </div>`;
 
         parouEm++;
@@ -181,8 +181,16 @@ function mudaGenero(gen=0){
     carregaDestaques(idCat);
 }
 
+function realizaPesquisa (){
+    console.log(query.value);
+}
+
 window.onload = () => {    
 
+    query = document.getElementById('barraPesquisa');
+    query.onsubmit = () => {
+        realizaPesquisa(query.value);
+    }
 
    let xhr = new XMLHttpRequest;
    xhr.open('GET', `https://api.themoviedb.org/3/trending/movie/day?api_key=840364f0ff622ef0996a655803cc34ac&language=pt-BR`);
@@ -250,5 +258,4 @@ window.onload = () => {
     genGuerra.onclick = () => mudaGenero(16);
     genVelho.onclick = () => mudaGenero(17);
     genSus.onclick = () => mudaGenero(18);
-   
 }

@@ -28,14 +28,14 @@
                             <a class="nav-link active" aria-current="page" href="/src/lancamento.html">LANÇAMENTOS</a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link" href="#">EM DESTAQUE</a>
+                            <a class="nav-link" href=".destaques">EM DESTAQUE</a>
                           </li>
                           <li class="nav-item">
                             <a class="nav-link" href="#">NOVIDADES</a>
                           </li>
                         </ul>
-                        <form class="d-flex">
-                          <input class="form-control me-2" type="search" placeholder="Pesquisar filme" aria-label="Search">
+                        <form class="d-flex" id="pesquisa">
+                          <input class="form-control me-2" type="search" placeholder="Pesquisar filme" aria-label="Search" id="barraPesquisa">
                           <button class="btn btn-outline-success" type="submit">GO!</button>
                         </form>
                       </div>
@@ -60,16 +60,16 @@
 
                   </div>
               </div>
-            <div class="botaoLancamento">
-            <a href="/src/lancamento.html"><button type="button" id="btnLancamento">+ VER MAIS FILMES</button></a>
-            </div>
+              <div id="maisDestaque" class="col-lg-3 carregar-mais btnLancamento">
+               <a href="/src/lancamento.html"> <button type="button" class="btn btn-dark" id="btnDestaque">VER MAIS</button></a>
+              </div>
               
             </section>
 
         <section class="container destaque">
           <div class="row" id="aba-destaques">
             <div class="col-12 destaques">
-                <div class="row">
+                <div class="row headerDestaque">
                     <div class="col-sm-6 col-md-8 col-lg-10 titulo" >
                         <h2>Em Destaque</h2>
                     </div>
@@ -118,7 +118,7 @@
                         <span style="display: none;"></span>
                     </div>
                     <div id="maisDestaque" class="col-lg-3 carregar-mais">
-                        <button type="button" class="btn btn-dark">+ Carregar mais Filmes</button>
+                        <button type="button" class="btn btn-dark" id="btnDestaque">+ Carregar mais Filmes</button>
                     </div>
                 </div>
             </div>

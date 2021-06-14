@@ -374,9 +374,20 @@ a {
     margin: 0 auto;
     font-size: 110%;
 }
+.titulo h2 {
+    color: white;
+}
 
-
-
+.headerDestaque {
+    padding: 1.5%;
+}
+#btnDestaque:hover {
+    background-color: black!important;
+}
+.btnLancamento {
+    width: 1050px;
+    padding-left: 84%;
+}
 
 
 @media screen and (max-width: 750px) {
