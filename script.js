@@ -65,6 +65,7 @@ function carregaDestaques(genero=''){
 }
 
 function carregaMaisDestaque(){
+    console.log("clicou");
     let continua = parouEm;
     let pare = parouEm+3;
 
@@ -181,16 +182,9 @@ function mudaGenero(gen=0){
     carregaDestaques(idCat);
 }
 
-function realizaPesquisa (){
-    console.log(query.value);
-}
+
 
 window.onload = () => {    
-
-    query = document.getElementById('barraPesquisa');
-    query.onsubmit = () => {
-        realizaPesquisa(query.value);
-    }
 
    let xhr = new XMLHttpRequest;
    xhr.open('GET', `https://api.themoviedb.org/3/trending/movie/day?api_key=840364f0ff622ef0996a655803cc34ac&language=pt-BR`);
@@ -237,7 +231,7 @@ window.onload = () => {
    xhr.send();
     
     carregaDestaques();
-    maisDestaque.onclick = carregaMaisDestaque;
+    maisDestaque.onclick = carregaMaisDestaque();
 
     genTodos.onclick = () => mudaGenero(0);
     genAcao.onclick = () => mudaGenero(1);
