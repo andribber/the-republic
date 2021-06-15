@@ -65,7 +65,6 @@ function carregaDestaques(genero=''){
 }
 
 function carregaMaisDestaque(){
-    console.log("clicou");
     let continua = parouEm;
     let pare = parouEm+3;
 
@@ -86,16 +85,19 @@ function carregaMaisDestaque(){
 
         let addPoster = document.getElementById("addPoster");
         addPoster.innerHTML += `
-        <div class="col-sm-12 col-md-6 col-lg-3 ${mobile} img-responsive imgLanc">
-            <div codigo="${id}"><img src="https://image.tmdb.org/t/p/w300/${foto}"  alt=""><h6>${title}</h6></div>
+        <div class="col-sm-12 col-md-6 col-lg-3 ${mobile}">
+            <div codigo="${id}"><img src="https://image.tmdb.org/t/p/w300/${foto}" alt=""><h6>${title}</h6></div>
         </div>`;
+        console.log("imprime poster");
 
         parouEm++;
     }
-
+    console.log("Carregou ", parouEm, " posters");
 }
 
+
 function mudaGenero(gen=0){
+    console.log("Rodou sa porr", gen)
     let visor = document.getElementById('catGen');
     let cat
     let idCat = '';
@@ -120,6 +122,7 @@ function mudaGenero(gen=0){
         case 4:
             cat="Comédia";
             idCat = '35';
+            console.log("comédia ta funcionado ué");
             break;
         case 5:
             cat="Animação";
@@ -230,26 +233,26 @@ window.onload = () => {
 }
    xhr.send();
     
-    carregaDestaques();
-    maisDestaque.onclick = carregaMaisDestaque();
+   carregaDestaques();
+   maisDestaque.onclick = carregaMaisDestaque;
 
-    genTodos.onclick = () => mudaGenero(0);
-    genAcao.onclick = () => mudaGenero(1);
-    genAventura.onclick = () => mudaGenero(2);
-    genRomance.onclick = () => mudaGenero(3);
-    genComedia.onclick = () => mudaGenero(4);
-    genAnima.onclick = () => mudaGenero(5);
-    genCrime.onclick = () => mudaGenero(6);
-    genDoc.onclick = () => mudaGenero(7);
-    genDrama.onclick = () => mudaGenero(8);
-    genFamilia.onclick = () => mudaGenero(9);
-    genFanta.onclick = () => mudaGenero(10);
-    genHist.onclick = () => mudaGenero(11);
-    genHorror.onclick = () => mudaGenero(12);
-    genMusica.onclick = () => mudaGenero(13);
-    genMisterio.onclick = () => mudaGenero(14);
-    genSciFi.onclick = () => mudaGenero(15);
-    genGuerra.onclick = () => mudaGenero(16);
-    genVelho.onclick = () => mudaGenero(17);
-    genSus.onclick = () => mudaGenero(18);
-}
+   genTodos.onclick = () => mudaGenero(0);
+   genAcao.onclick = () => mudaGenero(1);
+   genAventura.onclick = () => mudaGenero(2);
+   genRomance.onclick = () => mudaGenero(3);
+   genComedia.onclick = () => mudaGenero(4);
+   genAnima.onclick = () => mudaGenero(5);
+   genCrime.onclick = () => mudaGenero(6);
+   genDoc.onclick = () => mudaGenero(7);
+   genDrama.onclick = () => mudaGenero(8);
+   genFamilia.onclick = () => mudaGenero(9);
+   genFanta.onclick = () => mudaGenero(10);
+   genHist.onclick = () => mudaGenero(11);
+   genHorror.onclick = () => mudaGenero(12);
+   genMusica.onclick = () => mudaGenero(13);
+   genMisterio.onclick = () => mudaGenero(14);
+   genSciFi.onclick = () => mudaGenero(15);
+   genGuerra.onclick = () => mudaGenero(16);
+   genVelho.onclick = () => mudaGenero(17);
+   genSus.onclick = () => mudaGenero(18);
+};
