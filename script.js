@@ -200,6 +200,11 @@ function mudaGenero(gen=0){
 
 window.onload = () => {    
 
+    let btnPesquisa = document.getElementById('botaoPesquisa');
+    btnPesquisa.onclick = () => {
+        document.location.href = 'pesquisa.html';
+    }
+
    let xhr = new XMLHttpRequest;
    xhr.open('GET', `https://api.themoviedb.org/3/trending/movie/day?api_key=840364f0ff622ef0996a655803cc34ac&language=pt-BR`);
    xhr.onload = () => {
