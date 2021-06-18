@@ -25,8 +25,6 @@ function carregaDestaques(genero=''){
     xhr.onload = () => {
         setTimeout(()=>{
             poster = JSON.parse(xhr.responseText)["results"];
-            console.log("print poster", poster);
-            console.log("Carrega genero");
             for(let i=0; i<4; i++){
 
                 let mobile = '';
@@ -37,22 +35,32 @@ function carregaDestaques(genero=''){
                 let id = poster[i]["id"];
                 let title = poster[i]["title"];
                 let foto = poster[i]["poster_path"];
+                let date = poster[i]['release_date'];
+                let dataInvertida = date.split('-').reverse().join('/');
+                let avaliacao = poster[i]['vote_average'];
 
                 let addPoster = document.getElementById("addPoster");
 
                 if (parouEm==0){
                     addPoster.innerHTML = `
                     <div class="col-sm-12 col-md-6 col-lg-3 ${mobile} img-responsive imgLanc">
-                        <div codigo="${id}"><img src="https://image.tmdb.org/t/p/w300/${foto}"" alt=""><h6>${title}</h6></div>
+                        <div class="imgInserida" codigo="${id}"><a href="http://www.themoviedb.org/movie/${id}" target="_blank"><img src="https://image.tmdb.org/t/p/w300/${foto}"" alt="">
+                        <h6>${title}</h6>
+                        <h2>Lançamento: ${dataInvertida}</h2>
+                        <h2>Nota: ${avaliacao}</h2>
+                        </div></a>
                     </div>`;
                 }
                 else{
                     addPoster.innerHTML += `
                     <div class="col-sm-12 col-md-6 col-lg-3 ${mobile} img-responsive imgLanc">
-                        <div codigo="${id}"><img src="https://image.tmdb.org/t/p/w300/${foto}" alt=""><h6>${title}</h6></div>
+                        <div class="imgInserida" codigo="${id}"><a href="http://www.themoviedb.org/movie/${id}" target="_blank"><img src="https://image.tmdb.org/t/p/w300/${foto}" alt="">
+                        <h6>${title}</h6>
+                        <h2>Lançamento: ${dataInvertida}</h2>
+                        <h2>Nota: ${avaliacao}</h2>
+                        </div></a>
                     </div>`;
                 }
-                console.log("imprime poster");
 
                 parouEm++;
             }
@@ -60,7 +68,6 @@ function carregaDestaques(genero=''){
         },200);
     };
     xhr.send();
-    console.log("pega genero");
 
 }
 
@@ -82,22 +89,25 @@ function carregaMaisDestaque(){
         let id = poster[i]["id"];
         let title = poster[i]["title"];
         let foto = poster[i]["poster_path"];
+        let date = poster[i]['release_date'];
+        let dataInvertida = date.split('-').reverse().join('/');
+        let avaliacao = poster[i]['vote_average'];
 
         let addPoster = document.getElementById("addPoster");
         addPoster.innerHTML += `
-        <div class="col-sm-12 col-md-6 col-lg-3 ${mobile}">
-            <div codigo="${id}"><img src="https://image.tmdb.org/t/p/w300/${foto}" alt=""><h6>${title}</h6></div>
+        <div class="col-sm-12 col-md-6 col-lg-3 ${mobile} img-responsive imgLanc">
+            <div class="imgInserida" codigo="${id}"><a href="http://www.themoviedb.org/movie/${id}" target="_blank"><img src="https://image.tmdb.org/t/p/w300/${foto}" alt="">
+            <h6>${title}</h6>
+            <h2>Lançamento: ${dataInvertida}</h2>
+            <h2>Nota: ${avaliacao}</h2>
+            </div></a>
         </div>`;
-        console.log("imprime poster");
-
         parouEm++;
     }
-    console.log("Carregou ", parouEm, " posters");
 }
 
 
 function mudaGenero(gen=0){
-    console.log("Rodou sa porr", gen)
     let visor = document.getElementById('catGen');
     let cat
     let idCat = '';
@@ -187,6 +197,7 @@ function mudaGenero(gen=0){
 
 
 
+
 window.onload = () => {    
 
    let xhr = new XMLHttpRequest;
@@ -195,36 +206,64 @@ window.onload = () => {
    let item = JSON.parse (xhr.responseText);
    console.log(item);
    let i = 0;
+   
 
    for (let j=0; j<1; j++){
    let addLancamento = document.getElementById('lancamento');
+   let id = item['results'][i]['id'];
+   let date = item['results'][i]['release_date'];
+   let dataInvertida = date.split('-').reverse().join('/');
+   let avaliacao = item['results'][i]['vote_average'];
+   let sinopse = item['results'][i]['overview'];
+   
   
    addLancamento.innerHTML += 
 
    `     <div class= "col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 img-responsive imgLanc" id=innerImg">
-           <div><img src="https://image.tmdb.org/t/p/w300/${item['results'][i]["poster_path"]}" alt="LANÇAMENTO" >
+           <div class="imgInserida" codigo="${id}"><a href="http://www.themoviedb.org/movie/${id}" target="_blank"><img src="https://image.tmdb.org/t/p/w300/${item['results'][i]["poster_path"]}" alt="LANÇAMENTO" ></a>
                <h2>${item['results'][i]["title"]}</h2>
+               <h2>Lançamento: ${dataInvertida}</h2>
+               <h2>Nota: ${avaliacao}</h2>
+           </div>
+        </div>
+        `;
+    i++;
+    id = item['results'][i]['id'];
+    date = item['results'][i]['release_date'];
+    dataInvertida = date.split('-').reverse().join('/');
+    avaliacao = item['results'][i]['vote_average'];
+    addLancamento.innerHTML += `
+        <div class= "col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 img-responsive imgLanc" id=innerImg">
+           <div class="imgInserida" codigo="${id}"><a href="http://www.themoviedb.org/movie/${id}" target="_blank"><img src="https://image.tmdb.org/t/p/w300/${item['results'][i]["poster_path"]}" alt="LANÇAMENTO" ></a>
+               <h2>${item['results'][i]["title"]}</h2>
+               <h2>Lançamento: ${dataInvertida}</h2>
+               <h2>Nota: ${avaliacao}</h2>
            </div>
         </div>`;
     i++;
+    id = item['results'][i]['id'];
+    date = item['results'][i]['release_date'];
+    dataInvertida = date.split('-').reverse().join('/');
+    avaliacao = item['results'][i]['vote_average'];
     addLancamento.innerHTML += `
         <div class= "col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 img-responsive imgLanc" id=innerImg">
-           <div><img src="https://image.tmdb.org/t/p/w300/${item['results'][i]["poster_path"]}" alt="LANÇAMENTO" >
+           <div class="imgInserida" codigo="${id}"><a href="http://www.themoviedb.org/movie/${id}" target="_blank"><img src="https://image.tmdb.org/t/p/w300/${item['results'][i]["poster_path"]}" alt="LANÇAMENTO" ></a>
                <h2>${item['results'][i]["title"]}</h2>
-           </div>
-        </div>`;
-    i++;
-    addLancamento.innerHTML += `
-        <div class= "col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 img-responsive imgLanc" id=innerImg">
-           <div><img src="https://image.tmdb.org/t/p/w300/${item['results'][i]["poster_path"]}" alt="LANÇAMENTO" >
-               <h2>${item['results'][i]["title"]}</h2>
+               <h2>Lançamento: ${dataInvertida}</h2>
+               <h2>Nota: ${avaliacao}</h2>
            </div>
         </div>`;
     i++
+    id = item['results'][i]['id'];
+    date = item['results'][i]['release_date'];
+    dataInvertida = date.split('-').reverse().join('/');
+    avaliacao = item['results'][i]['vote_average'];
     addLancamento.innerHTML += `
         <div class= "col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 img-responsive imgLanc" id=innerImg">
-           <div><img src="https://image.tmdb.org/t/p/w300/${item['results'][i]["poster_path"]}" alt="LANÇAMENTO" >
+           <div class="imgInserida" codigo="${id}"><a href="http://www.themoviedb.org/movie/${id}" target="_blank"><img src="https://image.tmdb.org/t/p/w300/${item['results'][i]["poster_path"]}" alt="LANÇAMENTO" ></a>
                <h2>${item['results'][i]["title"]}</h2>
+               <h2>Lançamento: ${dataInvertida}</h2>
+               <h2>Nota: ${avaliacao}</h2>
            </div>
         </div>`;
    i++;
