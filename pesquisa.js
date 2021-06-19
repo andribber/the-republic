@@ -4,6 +4,8 @@
 
 window.onload = ()=> { 
 
+    alert('CASO NÃO CARREGUE OS RESULTADOS, ATUALIZE A PÁGINA ;)');
+
     let entrada = document.getElementById('barraPesquisa');
     let btnPesquisa = document.getElementById('botaoPesquisa');
     btnPesquisa.addEventListener('click', () => {
