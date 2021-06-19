@@ -199,6 +199,7 @@ function mudaGenero(gen=0){
 
 
 window.onload = () => {    
+    
     let entrada = document.getElementById('barraPesquisa');
     let btnPesquisa = document.getElementById('botaoPesquisa');
     btnPesquisa.addEventListener('click', () => {

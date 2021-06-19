@@ -30,12 +30,16 @@ window.onload = ()=> {
             let sinopse = resposta['results'][i]['overview'];
 
             addPesquisa.innerHTML += 
-                `<div class="col-sm-12 col-md-6 col-lg-3 img-responsive imgLanc" >
-                <div class="imgInserida" codigo="${id}"><a href="http://www.themoviedb.org/movie/${id}" target="_blank"><img src="https://image.tmdb.org/t/p/w300/${resposta['results'][i]["poster_path"]}" alt="BANNER INDISPONÍVEL" ></a>
+                `<div class="row">
+
+                <a href="http://www.themoviedb.org/movie/${id}" target="_blank"><div class="col-12 img-responsive imgLanc" >
+                <div class="imgInserida" codigo="${id}"><img src="https://image.tmdb.org/t/p/w300/${resposta['results'][i]["poster_path"]}" alt="BANNER INDISPONÍVEL" >
                <h2>${resposta['results'][i]["title"]}</h2>
                <h2>Lançamento: ${dataInvertida}</h2>
                <h2>Nota: ${avaliacao}</h2>
-                </div>
+               <p> Sinopse: ${sinopse}</p>
+                </div></a>
+
                 </div>`;
         }
      };

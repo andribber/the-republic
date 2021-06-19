@@ -315,7 +315,6 @@ a {
 .carregaLancamento{
     width: 203px;
     height: 35px;
-    float: right;
     margin-right: 5%;
     margin-bottom: 1%;
 }
@@ -363,8 +362,9 @@ a {
     background-color: black!important;
 }
 .btnLancamento {
-    width: 1050px;
-    padding-left: 84%;
+    width: 100%;
+    margin-left: 1%;
+    padding-left: 45.7%;
 }
 .imgInserida {
     background-color:rgb(44, 44, 44);
@@ -381,6 +381,7 @@ a {
     transform: scale(1.1);
     height: 105%;
 }
+
 
 
 
