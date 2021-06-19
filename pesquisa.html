@@ -13,33 +13,33 @@
 
 
     <body>
-        <header class="container header">
-            <div class="row col 12"> 
+      <header class="container header">
+        <div class="row col 12"> 
 
-                <nav class="navbar navbar-expand-lg navbar-light bg-light" id="cabecalho">
-                    <div class="container-fluid">
-                        <div class="title-page">
-                            <a class="navbar-brand" href="index.html">.THE REPUBLIC</a>
-                        </div>
-                      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                      </button>
-                      <div class="collapse navbar-collapse menus" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                          <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="lancamento.html">LANÇAMENTOS</a>
-                          </li>
-                        </ul>
-                        <form class="d-flex">
-                          <input class="form-control me-2" type="search" placeholder="Pesquisar filme" aria-label="Search">
-                          <button class="btn btn-outline-success" type="submit">GO!</button>
-                        </form>
-                      </div>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light" id="cabecalho">
+                <div class="container-fluid">
+                    <div class="title-page">
+                        <a class="navbar-brand" href="index.html">.THE REPUBLIC</a><br>
+                        <h5>O melhor site de filmes</h5>
                     </div>
-
-                  </nav>
-            </div>
-        </header>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse menus" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="lancamento.html">LANÇAMENTOS</a>
+                      </li>
+                    </ul>
+                    <form class="d-flex" id="pesquisa"  >
+                      <input class="form-control me-2" type="search" placeholder="Pesquisar filme" aria-label="Search" id="barraPesquisa" name="barraPesquisa" required>
+                    </form>
+                    <button  id="botaoPesquisa" class="btn btn-outline-success">GO!</button>
+                  </div>
+                </div>
+              </nav>
+        </div>
+    </header>
 
 
 
@@ -48,12 +48,9 @@
           <!--Lancamentos-->
             <section class="parte1">
               <h1 class="lancamento"> RESULTADOS DA PESQUISA</h1>
-                <div class="row">
-                    <div id="resultadoPesquisa">
-                        
-                    </div>
-                </div>
+              <div class="row" id="resultadoPesquisa">  
               
+              </div>
             </section>
 
         <section class="container footer">

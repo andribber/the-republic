@@ -220,7 +220,7 @@ window.onload = () => {
    let date = item['results'][i]['release_date'];
    let dataInvertida = date.split('-').reverse().join('/');
    let avaliacao = item['results'][i]['vote_average'];
-   let sinopse = item['results'][i]['overview'];
+
    
   
    addLancamento.innerHTML += 
